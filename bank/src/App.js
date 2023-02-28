@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Bank from './components/Bank';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div className='container border rounded mt-5'
+        style={{
+          background: `url(https://trikampis.online/wp-content/uploads/2023/02/wp6602988-scaled-e1677595476160.webp`,
+          backgroundSize: 'auto'
+        }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          <Bank/>
+
+        </div>
+    );
 }
 
 export default App;
