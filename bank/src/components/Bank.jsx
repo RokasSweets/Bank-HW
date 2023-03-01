@@ -38,8 +38,8 @@ export default function Bank() {
             client.map((client) => (
                 <React.Fragment key={client.id}>
                     <div>
-                        <span className='form-control bg-white btn mt-2 mb-2' style={{
-                            textAlign: "left", fontWeight: "bold", alignContent: "flex-end"}}>{client.name} {client.surname} Balance: {client.balance}</span>
+                        <span className='form-control bg-white btn mt-2 mb-2 right' style={{
+                            textAlign: "left", fontWeight: "bold", alignContent: "flex-end"}}>{client.name} {client.surname} Balance: {client.balance}€</span>
                     </div>
                 </React.Fragment>
             ))
