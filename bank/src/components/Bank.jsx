@@ -1,15 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react';
+import logo from './profile.png';
+
 
 export default function Bank() {
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
     const [client, setClient] = useState([]);
 
-    useEffect(() => {
-      if(localStorage.getItem("clientlist"));
-      const storedList = JSON.parse(localStorage.getItem("clientlist"));
-      setClient(storedList);
-    }, [])
+
     
 
     const addClient = (e) => {
@@ -23,18 +21,23 @@ export default function Bank() {
         }
     };
 
-    const handleDelete = (id) => {
-        localStorage.removeItem(id)
-        setClient([...client]);
-        localStorage.setItem("clientlist", JSON.stringify([...client]))
-    }
+    useEffect(() => {
+        if(localStorage.getItem("clientlist"));
+        const storedList = JSON.parse(localStorage.getItem("clientlist"));
+        setClient(storedList);
+      }, [])
+
+
+
+
+
   return (
     <>
     <div className='badge'>
         We have
         {client.length === 0 ? " no customers!" : client.length === 1 ? " 1 customer!" : client.length > 1 ? ` ${client.length} customers!` : null}
     </div>
-    <div className='container row'>
+    <div className='m-2 row'>
         <h1 className='mt-3 text-white'>Bank HW</h1>
         <p className='mt-1 text-white'>Add Your account</p>
         <div className='col-5'>
@@ -42,7 +45,7 @@ export default function Bank() {
             <input className='form-control mt-2' name="surname" type="text" value={surname} placeholder="Surname" onChange={(e) => setSurname(e.target.value)} required/>
         </div>
     </div>
-    <div className='container row'>
+    <div className='m-2 row'>
         <div className='col-5 mt-3 mb-3'>
         <button className='btn btn-primary form-control' onClick={addClient}>Add</button>
         </div>
@@ -53,12 +56,17 @@ export default function Bank() {
                     <div>
                         <span className='form-control bg-white btn mt-2 mb-2' style={{
                             textAlign: "left", fontWeight: "bold", alignContent: "flex-end"}}>
-                                <div className='col-1 right'><button className='btn btn-primary' 
-                                onClick={() => handleDelete(client.id)}>X</button></div>
-                                <div className='col-6 mt-4'>
-                            {client.name} {client.surname} 
+                                <div className='col-1 right'><button className='btn btn-primary'>X</button></div>
+                                <div className='col-7 mt-4'>
+                                <img style={{opacity: '100'}} className='image' src={logo} alt="profile" />
+                            <h1>{client.name} {client.surname} </h1>
                             <div>
                             Balance: {client.balance}€
+                            </div>
+                            <div>
+                                <input className='form-control mt-2' type="text" placeholder='Enter € amount' />
+                                <button className='btn btn-primary ml-1 '>Deposit</button>
+                                <button className='btn btn-primary m-1'>Withdraw</button>
                             </div>
                             </div>
                             </span>
