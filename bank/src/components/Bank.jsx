@@ -14,6 +14,12 @@ export default function Bank() {
             setName('')
             setSurname('')
         }
+    };
+
+    const handleDelete = (id) => {
+        localStorage.removeItem(id)
+        setClient([...client]);
+        localStorage.setItem("clientlist", JSON.stringify([...client]))
     }
   return (
     <>
@@ -38,8 +44,18 @@ export default function Bank() {
             client.map((client) => (
                 <React.Fragment key={client.id}>
                     <div>
-                        <span className='form-control bg-white btn mt-2 mb-2 right' style={{
-                            textAlign: "left", fontWeight: "bold", alignContent: "flex-end"}}>{client.name} {client.surname} Balance: {client.balance}€</span>
+                        <span className='form-control bg-white btn mt-2 mb-2' style={{
+                            textAlign: "left", fontWeight: "bold", alignContent: "flex-end"}}>
+                                <div className='col-1 right'><button className='btn btn-primary' 
+                                onClick={() => handleDelete(client.id)}>X</button></div>
+                                <div className='col-6 mt-4'>
+                            {client.name} {client.surname} 
+                            <div>
+                            Balance: {client.balance}€
+                            </div>
+                            </div>
+                            </span>
+                            
                     </div>
                 </React.Fragment>
             ))
