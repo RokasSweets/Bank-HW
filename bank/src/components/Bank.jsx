@@ -5,6 +5,13 @@ export default function Bank() {
     const [surname, setSurname] = useState('');
     const [client, setClient] = useState([]);
 
+    useEffect(() => {
+      if(localStorage.getItem("clientlist"));
+      const storedList = JSON.parse(localStorage.getItem("clientlist"));
+      setClient(storedList);
+    }, [])
+    
+
     const addClient = (e) => {
         if(client){
             let balance = 0;
