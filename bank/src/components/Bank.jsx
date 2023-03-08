@@ -21,11 +21,6 @@ export default function Bank() {
         }
     };
 
-    useEffect(() => {
-        if(localStorage.getItem("clientlist"));
-        const storedList = JSON.parse(localStorage.getItem("clientlist"));
-        setClient(storedList);
-      }, [])
 
 
 
@@ -56,7 +51,7 @@ export default function Bank() {
                     <div>
                         <span className='form-control bg-white btn mt-2 mb-2' style={{
                             textAlign: "left", fontWeight: "bold", alignContent: "flex-end"}}>
-                                <div className='col-1 right'><button className='btn btn-primary'>X</button></div>
+                                <div className='right'><button className='btn btn-primary'>X</button></div>
                                 <div className='col-7 mt-4'>
                                 <img style={{opacity: '100'}} className='image' src={logo} alt="profile" />
                             <h1>{client.name} {client.surname} </h1>
@@ -64,7 +59,7 @@ export default function Bank() {
                             Balance: {client.balance}€
                             </div>
                             <div>
-                                <input className='form-control mt-2' type="text" placeholder='Enter € amount' />
+                                <input className='form-control mt-2 mb-2' type="text" placeholder='Enter € amount' />
                                 <button className='btn btn-primary ml-1 '>Deposit</button>
                                 <button className='btn btn-primary m-1'>Withdraw</button>
                             </div>
