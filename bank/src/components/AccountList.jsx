@@ -107,7 +107,7 @@ const AccountList = ({ accounts, setAccount }) => {
                                     </h1>
                                     <p>Balance: {(+acc.sum.toFixed(2)).toLocaleString('lt')}Є </p>
                                     <button
-                                        className="delete btn btn-secondary mb-2"
+                                        className="delete btn btn-danger mb-2"
                                         onClick={() => deleteHandler(acc.id)}>
                                         Delete Acc
                                     </button>
@@ -135,6 +135,7 @@ const AccountList = ({ accounts, setAccount }) => {
                                             Withdraw
                                         </button>
                                     </div>
+                                    <p className='line'>-----------</p>
                                 </div>
                             </div>
                         ))

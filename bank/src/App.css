@@ -88,3 +88,10 @@
 .amount {
   text-align: center;
 }
+
+.line {
+  color: black;
+  line-height: 1px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
