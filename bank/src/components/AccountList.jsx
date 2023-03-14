@@ -107,14 +107,14 @@ const AccountList = ({ accounts, setAccount }) => {
                                     </h1>
                                     <p>Balance: {(+acc.sum.toFixed(2)).toLocaleString('lt')}Є </p>
                                     <button
-                                        className="delete btn btn-secondary"
+                                        className="delete btn btn-secondary mb-2"
                                         onClick={() => deleteHandler(acc.id)}>
                                         Delete Acc
                                     </button>
                                 </div>
                                 <div className="transfers center">
                                     <input
-                                    className='form-control col-6'
+                                    className='form-control amount'
                                         placeholder='Enter amount'
                                         type="number"
                                         id={acc.id}
@@ -124,13 +124,13 @@ const AccountList = ({ accounts, setAccount }) => {
                                     />
                                     <div>
                                         <button
-                                            className="deposit btn btn-primary"
+                                            className="deposit btn btn-primary m-2"
                                             onClick={() => depositHandler(acc.id)}>
                                             Deposit
                                         </button>
 
                                         <button
-                                            className="withdraw btn btn-secondary"
+                                            className="withdraw btn btn-secondary m-2"
                                             onClick={() => withdrawtHandler(acc.id)}>
                                             Withdraw
                                         </button>
