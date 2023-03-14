@@ -18,7 +18,7 @@ const AddNewAcccount = ({ accountListGenerator }) => {
         setLastName(e.target.value);
     };
 
-    const submitHandler = e => {
+    const submitHandler = async e => {
         e.preventDefault();
         if (inputIsValidInput(name) && inputIsValidInput(lastName)) {
             accountListGenerator(name, lastName);
